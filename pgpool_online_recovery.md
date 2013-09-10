@@ -1,6 +1,8 @@
 # PostgreSQL 8.4/Pgpool-II 3.3設定 #
 大部份提到pgpool的文章，雖然有提到replication的設置，但關於online recovery這個功能都很少提，這篇文件主要是補完這個部份。
 
+[CC-BY-SA][1] @RyanHo
+
 ## 環境設定 ##
 - Node1: 192.168.2.231
 - Node2: 192.168.2.232
@@ -311,3 +313,5 @@ ssh root@$DEST /etc/init.d/postgresql start
 如果沒有什麼意外，執行完畢之後Node2的PostgreSQL會啟動，而執行show pool_nodes;就會顯示2。
 
 另外要注意的是，在執行online recovery時，執行到第2階段，pgpool都是處於拒絕連線的狀態，除非執行完，這是避免執行online recovery時因為client連入導致資料不一致。
+
+[1]: http://creativecommons.org/licenses/by-sa/3.0/tw/
