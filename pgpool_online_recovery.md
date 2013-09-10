@@ -223,7 +223,7 @@ node1預設是master，如果master node掛了，會改由node2作為master，�
 	
 	#! /bin/sh
 	DATA=$1
-RECOVERY_TARGET=$2
+	RECOVERY_TARGET=$2
 	RECOVERY_DATA=$3
 
 	psql -c "select pg_start_backup('pgpool-recovery')" postgres
