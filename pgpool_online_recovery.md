@@ -85,7 +85,7 @@ Pgpool會使用額外的系統資源，如果可能的話，在獨立的設備�
     #設定WAL archiving for Point-In-Time Recovery
     archive_mode = on
     archive_command = 'cp %p /exchange/wal/`hostname -s`/%f'
-	archive_timeout = 300
+    archive_timeout = 300
 
 ### 編輯pg_hba.conf ###
 	host    all     all     192.168.2.0/24  trust
@@ -246,11 +246,11 @@ RECOVERY_TARGET=$2
 	fi
 	
 	DEST=$1
-DESTDIR=$2
+	DESTDIR=$2
 	PGCTL=/usr/bin/pg_ctl
 	
 	ssh $DEST tar zxf /exchange/pgsql.tar.gz -C /var/lib/pgsql/data
-ssh root@$DEST /etc/init.d/postgresql start
+	ssh root@$DEST /etc/init.d/postgresql start
 
 **原本檔案中應該是以postgres執行pg_ctl來啟動PostgreSQL，但是會發生資料庫已經啟動完成，ssh卻不會斷線的情況，導致online recovery的程序卡住，所以我改用執行init script的方式，因此需要root權限，不安全但是目前可行的作法。**
 
