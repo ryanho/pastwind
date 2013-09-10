@@ -1,4 +1,6 @@
 # PostgreSQL 8.4/Pgpool-II 3.3設定 #
+大部份提到pgpool的文章，雖然有提到replication的設置，但關於online recovery這個功能都很少提，這篇文件主要是補完這個部份。
+
 ## 環境設定 ##
 - Node1: 192.168.2.231
 - Node2: 192.168.2.232
